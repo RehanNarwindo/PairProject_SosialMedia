@@ -1,20 +1,37 @@
 const express = require("express");
 const router = express.Router();
-const UserController = require("../controllers/UserController")
+const UserController = require("../controllers/UserController");
+const PostController = require("../controllers/PostController");
 //home
-router.get("/", (req, res)=> {
-    res.render("landing_page.ejs")
-});
+router.get("/", UserController.landingPage);
 // register
-router.get("/register", UserController.registerForm)
-router.post("/register", UserController.postRegister)
+router.get("/register", UserController.registerForm);
+router.post("/register", UserController.postRegister);
 
-router.get("/login", (req, res)=> {
-    res.render("login.ejs")
-});
-router.post("/login", (req, res)=> {
-    res.render("login.ejs")
-});
+router.get("/login", UserController.loginForm);
+router.post("/login", UserController.postloginForm);
 
-router.get("/")
+router.use((req, res, next) => {
+  //   console.log(req.session, "ini req.sesion");
+  //   console.log("Time:", Date.now());
+  const error = "Please login";
+  if (!req.session.userId) {
+    res.redirect(`/login?error=${error}`);
+  } else {
+    next();
+  }
+});
+router.get("/home", UserController.Home);
+
+// beranda
+router.get("/beranda", PostController.Beranda);
+
+router.get("/beranda/addPost", PostController.ShowAddPost);
+router.post("/beranda/addPost", PostController.AddPost);
+
+//User Profile
+
+// logout
+router.get("/logout", UserController.Logout);
+
 module.exports = router;
