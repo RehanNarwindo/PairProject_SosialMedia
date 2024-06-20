@@ -12,6 +12,8 @@ module.exports = (sequelize, DataTypes) => {
      */
     static associate(models) {
       // define association here
+      User.hasMany(models.Post)
+      User.hasOne(models.Profile)
     }
   }
   User.init({
@@ -20,8 +22,8 @@ module.exports = (sequelize, DataTypes) => {
       allowNull : false,
       unique: true,
       validate : {
-        isNull : { msg : "is required"},
-        notEmpty: { msg : "is required" }
+        isNull : { msg : "username is required"},
+        notEmpty: { msg : "username is required" }
       }
     },
     email: {
@@ -29,8 +31,8 @@ module.exports = (sequelize, DataTypes) => {
       allowNull : false,
       unique: true,
       validate : {
-        isNull : { msg : "is required"},
-        notEmpty: { msg : "is required" }
+        isNull : { msg : "email is required"},
+        notEmpty: { msg : "email is required" }
       }
     },
     password: {
@@ -38,8 +40,8 @@ module.exports = (sequelize, DataTypes) => {
       allowNull : false,
       len : [8, 12],
       validate : {
-        isNull : { msg : "is required"},
-        notEmpty: { msg : "is required" }
+        isNull : { msg : "password is required"},
+        notEmpty: { msg : "password is required" }
       }
     },
     phone_number: {
@@ -47,8 +49,16 @@ module.exports = (sequelize, DataTypes) => {
       allowNull : false,
       len : [10, 12],
       validate : {
-        isNull : { msg : "is required"},
-        notEmpty: { msg : "is required" }
+        isNull : { msg : "phone_number is required"},
+        notEmpty: { msg : "phone_number is required" }
+      }
+    },
+    role: {
+      type: DataTypes.STRING,
+      allowNull: false,
+      validate : {
+        isNull : { msg : "role is required"},
+        notEmpty: { msg : "role is required" }
       }
     }
   }, {

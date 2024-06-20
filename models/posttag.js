@@ -11,6 +11,9 @@ module.exports = (sequelize, DataTypes) => {
      */
     static associate(models) {
       // define association here
+      // Conjunction.belongsTo(models.A)
+      // Conjunction.belongsTo(models.B)
+      
     }
   }
   PostTag.init({
