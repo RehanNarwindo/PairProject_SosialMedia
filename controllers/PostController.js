@@ -33,14 +33,14 @@ class PostController {
         });
       }
       //   console.log(data);
-      res.render("beranda.ejs", { data });
+      res.render("../views/Dashboard/index_user.ejs", { data });
     } catch (error) {
       res.send(error);
     }
   }
   static async ShowAddPost(req, res) {
     try {
-      res.render("addPost.ejs");
+      res.render("../views/Dashboard/formAddPost.ejs");
     } catch (error) {
       res.send(error);
     }

@@ -9,7 +9,8 @@ class ProfileController {
         where: { id: id },
         include: Post,
       });
-      res.render("profile.ejs", { data });
+      // console.log(req.session);
+      res.render("../views/Dashboard/index_profile.ejs", { data });
     } catch (error) {
       res.send(error);
     }
