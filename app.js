@@ -11,3 +11,19 @@
 //npx sequelize model:generate --name PostTag --attributes PostId:integer,TagId:integer
 
 //npx sequelize migration:generate --name add-column-UserId-to-profiles-table
+//npx sequelize migration:generate --name add-column-role-to-users-table
+
+[
+    {
+        "username": "faishal",
+        "email": "faishal@gmail.com",
+        "password": "Inipassword",
+        "phone_number": "08764345787"
+    },
+    {
+        "username": "admin",
+        "email": "admin@gmail.com",
+        "password": "Inipassword1",
+        "phone_number": "08764345787"
+    }
+]

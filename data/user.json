@@ -1,0 +1,16 @@
+[
+    {
+        "username": "faishal",
+        "email": "faishal@gmail.com",
+        "password": "Inipassword",
+        "phone_number": "08764345787",
+        "role": "user"
+    },
+    {
+        "username": "admin",
+        "email": "admin@gmail.com",
+        "password": "Inipassword1",
+        "phone_number": "08764345787",
+        "role": "admin"
+    }
+]
