@@ -5,14 +5,14 @@ const sendEmail = require("../helpers/emailService");
 class UserController {
   static async landingPage(req, res) {
     try {
-      res.render("landing_page.ejs");
+      res.render("../views/Dashboard/landingPage.ejs");
     } catch (error) {
       res.send(error);
     }
   }
   static async registerForm(req, res) {
     try {
-      res.render("register.ejs");
+      res.render("../views/Dashboard/index_register.ejs");
     } catch (error) {
       res.send(error);
     }
@@ -67,7 +67,7 @@ class UserController {
           return res.send(error);
         } else {
           const { error } = req.query;
-          res.render("login.ejs", { error });
+          res.render("../views/Dashboard/index_login.ejs", { error });
         }
       });
     } catch (error) {
