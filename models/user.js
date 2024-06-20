@@ -19,44 +19,51 @@ module.exports = (sequelize, DataTypes) => {
       type : DataTypes.STRING,
       allowNull : false,
       unique: true,
-      validate : {
-        isNull : { msg : "is required"},
-        notEmpty: { msg : "is required" }
+      validate:{
+        notEmpty:{
+          msg:"username harus di isi"
+        }
       }
     },
     email: {
       type : DataTypes.STRING,
       allowNull : false,
       unique: true,
-      validate : {
-        isNull : { msg : "is required"},
-        notEmpty: { msg : "is required" }
+      validate:{
+        notEmpty:{
+          msg:"email harus di isi"
+        }
       }
     },
     password: {
       type : DataTypes.STRING,
       allowNull : false,
-      len : [8, 12],
-      validate : {
-        isNull : { msg : "is required"},
-        notEmpty: { msg : "is required" }
+      len : [8, 12],validate:{
+        notEmpty:{
+          msg:"password harus di isi"
+        }
       }
     },
     phone_number: {
       type : DataTypes.STRING,
       allowNull : false,
       len : [10, 12],
-      validate : {
-        isNull : { msg : "is required"},
-        notEmpty: { msg : "is required" }
+      validate:{
+        notEmpty:{
+          msg:"phone number harus di isi"
+        }
       }
+    }, role: {
+      type : DataTypes.STRING,
+      allowNull : false
     }
   }, {
     hooks: {
       beforeCreate: (user, options) => {
-        const hashedPassword = hashPassword(user.password);
-
-        user.password = hashedPassword;
+        // console.log(user, "<< ini di decryp")
+        // user.password = "mode_secure"
+        let salt = bcrypt.genSaltSync(10);
+        user.password = bcrypt.hashSync(user.password, salt)
       }
     },
     sequelize,
