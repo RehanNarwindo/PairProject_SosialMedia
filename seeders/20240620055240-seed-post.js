@@ -1,5 +1,7 @@
 'use strict';
 
+const { RelationshipType } = require('sequelize/lib/errors/database/foreign-key-constraint-error');
+
 /** @type {import('sequelize-cli').Migration} */
 module.exports = {
   async up(queryInterface, Sequelize) {
@@ -12,11 +14,12 @@ module.exports = {
      *   isBetaMember: false
      * }], {});
     */
-    let data = require('../data/user.json').map(el => {
+
+    let data = require('../data/post.json').map(el => {
       el.createdAt = el.updatedAt = new Date()
       return el
     })
-    await queryInterface.bulkInsert('Users', data)
+    await queryInterface.bulkInsert('Posts', data)
   },
 
   async down(queryInterface, Sequelize) {
@@ -26,6 +29,6 @@ module.exports = {
      * Example:
      * await queryInterface.bulkDelete('People', null, {});
      */
-    await queryInterface.bulkDelete('Users', null, { truncate: true, restartIndentity: true })
+    await queryInterface.bulkDelete('Posts', null, {truncate:true, restartIdentity:true})
   }
 };

@@ -11,13 +11,26 @@ module.exports = (sequelize, DataTypes) => {
      */
     static associate(models) {
       // define association here
+      // A.belongsToMany(models.B, { through: 'conjunction_table' });
+      // A.hasMany(models.Conjunction);
+      Post.belongsToMany(models.Tag, { through: "PostTags"})
+      Post.belongsTo(models.User)
+      
     }
   }
   Post.init({
-    title: DataTypes.STRING,
-    content: DataTypes.TEXT,
-    imgUrl: DataTypes.STRING,
-    UserId: DataTypes.INTEGER
+    title: {
+      type: DataTypes.STRING,
+    },
+    content: {
+      type: DataTypes.TEXT,
+    },
+    imgUrl: {
+      type: DataTypes.STRING,
+    },
+    UserId: {
+      type: DataTypes.INTEGER
+    },
   }, {
     sequelize,
     modelName: 'Post',

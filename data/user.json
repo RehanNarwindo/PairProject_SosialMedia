@@ -12,5 +12,26 @@
         "password": "Inipassword1",
         "phone_number": "08764345787",
         "role": "admin"
+    },
+    {
+        "username": "admin1",
+        "email": "admin1@gmail.com",
+        "password": "Inipassword1",
+        "phone_number": "08764345787",
+        "role": "admin"
+    },
+    {
+        "username": "admin2",
+        "email": "admin2@gmail.com",
+        "password": "Inipassword1",
+        "phone_number": "08764345787",
+        "role": "admin"
+    },
+    {
+        "username": "admin3",
+        "email": "admin3@gmail.com",
+        "password": "Inipassword1",
+        "phone_number": "08764345787",
+        "role": "admin"
     }
 ]
