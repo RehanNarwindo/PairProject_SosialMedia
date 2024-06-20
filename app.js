@@ -1,29 +1,12 @@
-//npx sequelize model:generate --name User --attributes username:string,email:integer,password:string,phone_number:string
+const express = require("express");
+const app = express();
+const port = 3001;
 
-//npx sequelize model:generate --name Tag --attributes name:string
+app.set("view engine", "ejs");
+app.use(express.urlencoded({ extended: true }));
 
-//npx sequelize model:generate --name Profile --attributes first_name:string,last_name:string,profile_picture:string,private_account:boolean
+app.use("/", require("./routes/index"));
 
-//npx sequelize model:generate --name Post --attributes title:string,content:text,imgUrl:string,UserId:integer
-
-//npx sequelize model:generate --name PostTag --attributes PostId:integer,TagId:integer
-
-//npx sequelize model:generate --name PostTag --attributes PostId:integer,TagId:integer
-
-//npx sequelize migration:generate --name add-column-UserId-to-profiles-table
-//npx sequelize migration:generate --name add-column-role-to-users-table
-
-[
-    {
-        "username": "faishal",
-        "email": "faishal@gmail.com",
-        "password": "Inipassword",
-        "phone_number": "08764345787"
-    },
-    {
-        "username": "admin",
-        "email": "admin@gmail.com",
-        "password": "Inipassword1",
-        "phone_number": "08764345787"
-    }
-]
+app.listen(port, () => {
+  console.log(`Example app listening on port ${port}`);
+});

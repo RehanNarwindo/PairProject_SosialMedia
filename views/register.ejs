@@ -1,0 +1,23 @@
+<title>Register</title>
+</head>
+<body>
+    <h1>Halaman Register</h1>
+    <form action="/register" method="post">
+        <label for="username">Username :</label><br>
+        <input type="text" id="username" name="username" ><br>
+        <label for="phone_number">Phone Number :</label><br>
+        <input type="number" id="phone_number" name="phone_number" ><br>
+        <label for="email">Email :</label><br>
+        <input type="email" id="password" name="email" ><br>
+        <label for="password">Password :</label><br>
+        <input type="password" id="password" name="password" ><br><br>
+        <label for="role">Role :</label>
+        <select name="role" id="role">
+            <option value="user">user</option>
+            <option value="admin">admin</option>
+        </select><br><br><br>
+        <input type="submit" value="register">
+      </form> 
+      <a href="/login"><button>Sudah ada akun</button></a>
+</body>
+</html>

@@ -1,0 +1,26 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Register</title>
+</head>
+<body>
+    <h1>Halaman Login</h1>
+    <form action="/register" method="post">
+        <label for="username">Username :</label><br>
+        <input type="text" id="username" name="username" ><br>
+        <label for="password">Password :</label><br>
+        <input type="password" id="password" name="password" ><br><br>
+        <label for="role">Role :</label>
+
+        <select name="role" id="role">
+            <option value="user">user</option>
+            <option value="admin">admin</option>
+
+        </select><br><br><br>
+        <input type="submit" value="login">
+      </form> 
+      <a href="/register"><button>Buat akun</button></a>
+</body>
+</html>
