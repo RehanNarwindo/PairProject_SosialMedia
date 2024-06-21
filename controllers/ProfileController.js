@@ -1,5 +1,6 @@
 const bcrypt = require("bcryptjs");
-const { User, Post } = require("../models");
+const { User, Post, PostTag } = require("../models");
+const { where } = require("sequelize");
 
 class ProfileController {
   static async profile(req, res) {
@@ -44,6 +45,35 @@ class ProfileController {
           },
         }
       );
+    } catch (error) {
+      res.send(error);
+    }
+  }
+  static async deletePost(req, res) {
+    try {
+      const { id } = req.params;
+      await PostTag.destroy({
+        where: {
+          PostId: +id,
+        },
+      });
+      await Post.destroy({
+        where: {
+          id: +id,
+        },
+      });
+      res.redirect("/profile");
+    } catch (error) {
+      res.send(error);
+    }
+  }
+
+  static async editPost(req, res) {
+    try {
+      let { id } = req.params;
+      let { title, content, imgUrl } = req.body;
+      await Post.update({ title, content, imgUrl }, { where: { id: +id } });
+      res.redirect("/profile");
     } catch (error) {
       res.send(error);
     }

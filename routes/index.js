@@ -28,10 +28,12 @@ router.get("/profile", ProfileController.profile);
 // edit profile
 router.get("/profile/edit", ProfileController.editProfile);
 router.post("/profile/edit", ProfileController.postEditProfile);
-
-// beranda
 router.get("/beranda", PostController.Beranda);
 
+// delete profile
+router.get("/profile/delete/:id", ProfileController.deletePost);
+
+// beranda
 router.get("/beranda/addPost", PostController.ShowAddPost);
 router.post("/beranda/addPost", PostController.AddPost);
 

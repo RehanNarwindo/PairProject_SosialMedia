@@ -1,45 +1,75 @@
 <!DOCTYPE html>
 <html lang="en">
-
-<head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Form Add Posts</title>
-</head>
-
-<body style="background-color: orange;">
-    <div class="d-flex aligns-items-center justify-content-center card text-center w-75 mx-auto"
-        style="margin-top: 50px">
-        <div class="card-body" style="text-align: left; margin-inline: 5%; margin-bottom: 10px;">
-            <form action="/beranda/addPost" method="post">
-                <div class="mb-3">
-                    <label for="title" class="form-label">Title:</label>
-                    <input type="text" class="form-control" id="title" value="" name="title" placeholder="title">
-                </div>
-                <div class="mb-3">
-                    <label for="content" class="form-label">Content:</label>
-                    <input type="text" class="form-control" id="content" value="" name="content" placeholder="content">
-                </div>
-                
-                <div class="mb-3">
-                    <label for="imgUrl" class="form-label">ImgUrl:</label>
-                    <input type="text" class="form-control" id="imgUrl" value="" name="imgUrl" placeholder="imgUrl">
-                </div>
-
-                <div class="mb-3">
-                    <label for="tags" class="form-label">Tags:</label>
-                    <input type="text" class="form-control" id="tags" value="" name="tags" placeholder="tags">
-                </div>
-                
-                
-                <div class="text-center">
-                    <button type="submit" class="btn btn-warning" style="color: white; padding-left: 30px;padding-right: 30px;">Submit</button>
-                </div>
-            </form>
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Add Post</title>
+  </head>
+  <body>
+    <div
+      class="card-body"
+      style="text-align: left; margin-inline: 5%; margin-bottom: 10px"
+    >
+      <h1>ADD POST</h1>
+      <form action="/beranda/addPost" method="post">
+        <div class="mb-3">
+          <label for="title" class="form-label">Title:</label>
+          <input
+            type="text"
+            class="form-control"
+            id="title"
+            value=""
+            name="title"
+            placeholder="title"
+          />
         </div>
+        <div class="mb-3">
+          <label for="content" class="form-label">Content:</label>
+          <input
+            type="text"
+            class="form-control"
+            id="content"
+            value=""
+            name="content"
+            placeholder="content"
+          />
+        </div>
+
+        <div class="mb-3">
+          <label for="imgUrl" class="form-label">ImgUrl:</label>
+          <input
+            type="text"
+            class="form-control"
+            id="imgUrl"
+            value=""
+            name="imgUrl"
+            placeholder="imgUrl"
+          />
+        </div>
+
+        <div class="mb-3">
+          <label for="tags" class="form-label">Tags:</label>
+          <input
+            type="text"
+            class="form-control"
+            id="tags"
+            value=""
+            name="tags"
+            placeholder="tags"
+          />
+        </div>
+
+        <div class="text-center">
+          <button
+            type="submit"
+            class="btn btn-warning"
+            style="color: white; padding-left: 30px; padding-right: 30px"
+          >
+            Submit
+          </button>
+        </div>
+      </form>
     </div>
-
-    <%- include('./_link.ejs') %>
-</body>
-
+    <%- include('../partial/_link.ejs') %>
+  </body>
 </html>

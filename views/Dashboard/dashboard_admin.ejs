@@ -22,9 +22,7 @@
   </head>
   <body class="sb-nav-fixed">
     <nav class="sb-topnav navbar navbar-expand navbar-dark bg-dark">
-      <!-- Navbar Brand-->
       <a class="navbar-brand ps-3" href="/beranda">DesaKu</a>
-      <!-- Sidebar Toggle-->
       <button
         class="btn btn-link btn-sm order-1 order-lg-0 me-4 me-lg-0"
         id="sidebarToggle"
@@ -102,7 +100,7 @@
             <ol class="breadcrumb mb-4">
               <li class="breadcrumb-item active">Beranda</li>
             </ol>
-            <a href="/beranda/addPost" class="btn btn-primary mb-2"
+            <a href="/beranda/addPost" type="btn" class="btn btn-primary mb-2"
               >Add Posts</a
             >
 
@@ -117,8 +115,7 @@
                 "
               >
                 <div class="card mb-4">
-                  <h5><%= el.User.username %></h5>
-
+                  <h5><%= el.User.username || 'Username not available' %></h5>
                   <div class="card-header">
                     <i class="fas fa-chart-area me-1"></i>
                     <%= el.title %>
@@ -133,12 +130,28 @@
                     </div>
                     <p><%= el.content %></p>
                     <div>
-                      <% el.Tags.forEach(el2 => { %>
-                      <a href="/beranda?tags=<%= el2.name %>"
-                        ><p>#<%= el2.name %></p></a
+                      <% el.Tags.forEach(tag => { %>
+                      <a href="/beranda?tags=<%= tag.name %>"
+                        ><p>#<%= tag.name %></p></a
                       >
                       <% }) %>
                     </div>
+                  </div>
+                  <div class="justify-content-center">
+                    <form
+                      action="/beranda/deletePost/<%= el.id %>"
+                      method="POST"
+                      style="display: inline-block"
+                    >
+                      <button type="submit" class="btn btn-danger">
+                        Delete
+                      </button>
+                    </form>
+                    <a
+                      href="/beranda/editPost/<%= el.id %>"
+                      class="btn btn-warning"
+                      >Edit</a
+                    >
                   </div>
                 </div>
               </div>
@@ -155,7 +168,7 @@
               <div>
                 <a href="#">Privacy Policy</a>
                 &middot;
-                <a href="#">Terms & Conditions</a>
+                <a href="#">Terms &amp; Conditions</a>
               </div>
             </div>
           </div>

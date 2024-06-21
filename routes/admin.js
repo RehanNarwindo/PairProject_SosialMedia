@@ -12,7 +12,7 @@ router.use((req, res, next) => {
   }
 });
 router.get("/dashboard", (req, res) => {
-  res.send("halaman dashboard");
+  res.send("halaman admin");
 });
 
 module.exports = router;

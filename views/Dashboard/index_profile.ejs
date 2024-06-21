@@ -40,7 +40,10 @@
                                                 <%= post.content %>
                                             </p>
                                         </div>
-
+                                        <div>
+                                            <a href= "/profile/delete/<%= post.id %>" type="btn" class="btn btn-danger">HAPUS</a>
+                                            <a href= "/profile/edit/<%= post.id %>" type="btn" class="btn btn-warning">Edit</a>
+                                        </div>
                                     </div>
                                     <% }) %>
                                         <% }) %>
@@ -54,12 +57,9 @@
                                            
 
                                             <div class="buttons">
-
                                                 <button class="btn btn-outline-primary px-4">Message</button>
                                                 <button class="btn btn-primary px-4 ms-3">Contact</button>
                                             </div>
-
-
                                 </div>
 
 

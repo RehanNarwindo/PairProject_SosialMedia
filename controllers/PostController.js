@@ -8,19 +8,25 @@ class PostController {
       const { tags, search } = req.query;
       console.log(req.query);
       let data;
+
       if (tags) {
         data = await Post.findAll({
-          include: {
-            model: Tag,
-            where: {
-              name: tags,
+          include: [
+            {
+              model: Tag,
+              where: {
+                name: tags,
+              },
             },
-          },
+            {
+              model: User,
+            },
+          ],
           order: [["createdAt", "DESC"]],
         });
       } else if (search) {
         data = await Post.findAll({
-          include: Tag,
+          include: [Tag, User],
           where: {
             title: { [Op.iLike]: `%${search}%` },
           },
@@ -28,11 +34,11 @@ class PostController {
         });
       } else {
         data = await Post.findAll({
-          include: Tag,
+          include: [Tag, User],
           order: [["createdAt", "DESC"]],
         });
       }
-      //   console.log(data);
+
       res.render("../views/Dashboard/index_user.ejs", { data });
     } catch (error) {
       res.send(error);
